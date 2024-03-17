@@ -1,5 +1,4 @@
 <?php
-
 class Database {
     private static $serveur = "localhost";
     private static $utilisateur = "root";
@@ -13,6 +12,7 @@ class Database {
                 self::$bdd = new PDO("mysql:host=" . self::$serveur . ";dbname=" . self::$base, self::$utilisateur, self::$motdepasse);
             } catch(PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
+                exit(); // Arrêter le script en cas d'erreur de connexion
             }
         }
         return self::$bdd;

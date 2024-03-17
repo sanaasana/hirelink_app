@@ -1,10 +1,13 @@
+
 <?php
 // Inclure le fichier de configuration
 include '../racine/config.php';
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
+    // Établir la connexion à la base de données en utilisant la classe Database
+    $pdo = Database::connect();
+
     $id_offre = 24;
     $id_rec = 12;
     $nom_entreprise = $_POST['entreprise'];
@@ -23,3 +26,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+
