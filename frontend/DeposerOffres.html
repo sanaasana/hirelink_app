@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter des offres</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="DeposerOffres.css">
+    <link rel="icon" href="imglogo.jpeg" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>Déposer une offre d'emploi</h1>
+        <p></p>
+        <form action="../controller/offres.php" method="post">
+            <div class="row">
+                <div class="column">
+                    <label for="entreprise">Nom de l'entreprise</label>
+                    <input type="entreprise" name="entreprise" placeholder="Entrez le nom de l'entreprise" required>
+                    <label for="Lieu">Lieu</label>
+                    <input type="Lieu" name="Lieu" placeholder="Entrez le lieu de travail" required>
+                    <label for="poste">Titre du poste</label>
+                    <input type="poste" name="poste" placeholder="Entrez le titre du poste" required>
+                </div>
+                <div class="column">
+                    <label for="descrip">Déscription de l'offre</label>
+                    <textarea name="descrip" placeholder="Veuillez fournir une description de l'offre" rows="7" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="Responsabilites">Responsabilités</label>
+                    <textarea name="Responsabilites" placeholder="Précisez les responsabilités de l'offre" rows="3" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="Exigences">Exigences</label>
+                    <textarea name="Exigences" placeholder="Précisez les exigences de l'offre" rows="3" required></textarea>
+                </div>
+            </div>
+            <input type="submit" value="eresgitrer">
+            <button type="button" onclick="poster()">Poster</button>
+        </form>
+    </div>    
+    <script>
+        function poster() {
+            var entreprise = document.getElementsByName("entreprise");
+            var poste = document.getElementsByName("poste");
+            var descrip = document.getElementsByName("descrip");
+            var Responsabilites = document.getElementsByName("Responsabilites");
+            var Exigences = document.getElementsByName("Exigences");
+            var Lieu = document.getElementsByName("Lieu");
+            
+            // Vérifier si chaque champ est vide
+            if (entreprise.value.trim() === '') {
+                entreprise.classList.add('error');
+                return;
+            }
+            if (poste.value.trim() === '') {
+                poste.classList.add('error');
+                return;
+            }
+            if (descrip.value.trim() === '') {
+                descrip.classList.add('error');
+                return;
+            }
+            if (Responsabilites.value.trim() === '') {
+                Responsabilites.classList.add('error');
+                return;
+            }
+            if (Exigences.value.trim() === '') {
+                Exigences.classList.add('error');
+                return;
+            }
+            if (Lieu.value.trim() === '') {
+                Lieu.classList.add('error');
+                return;
+            }
+
+            
+            
+            // Créer un objet d'offre
+            var offre = {
+                entreprise: entreprise.value,
+                poste: poste.value,
+                descrip: descrip.value,
+                Responsabilites: Responsabilites.value,
+                Exigences: Exigences.value,
+                Lieu: Lieu.value
+            };
+
+            // Stocker l'objet d'offre dans le stockage local
+            var offres = JSON.parse(localStorage.getItem('offres')) || [];
+            offres.push(offre);
+            localStorage.setItem('offres', JSON.stringify(offres));
+
+            // Rediriger vers la page 
+            window.location.href = "Offres.html";
+            window.location.href = "recruteur.html";
+        }
+        // Supprimer la classe d'erreur lorsque l'utilisateur commence à remplir le champ
+        document.querySelectorAll('input, textarea').forEach(element => {
+            element.addEventListener('input', function() {
+                this.classList.remove('error');
+            });
+        });
+    </script>
+</body>
+</html>
