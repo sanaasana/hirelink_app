@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="../controller/formulaireController.php" method="post">
         <h1 id="titre"> Formulaire de Candidature </h1>
         <fieldset>
             <legend><strong> Informations Personnelles </strong></legend>
@@ -39,30 +39,43 @@
         <fieldset>
             <legend><strong>Profil</strong></legend>
             <label for="profil"> Profil </label>
-            <textarea name="my_textarea" rows="5" cols="50" placeholder="Donner une description de votre profil..">
+            <textarea name="profil" rows="5" cols="50" placeholder="Donner une description de votre profil..">
 </textarea>
         </fieldset>
         <fieldset>
             <legend><strong>Formation</strong></legend>
             <div class="for" id="formationFieldset">
                 <div>
+                    <label for="nom">Nom du Diplôme</label>
+                    <input type="text" id="nom" name="nom"
+                        placeholder="Nom du diplome Obtenu"><br>
+                </div>
+                <div>
                     <label for="diplomeObtenu">Diplôme Obtenu</label>
                     <input type="text" id="diplomeObtenu" name="diplomeObtenu" placeholder="Diplôme Obtenu"><br>
                 </div>
                 <div>
                     <label for="Etablissement_d'enseignement">Etablissement</label>
-                    <input type="text" id="Etablissement_d'enseignement" name="Etablissement_d'enseignement"
+                    <input type="text" id="Etablissement_d'enseignement" name="Etablissement"
                         placeholder="Etablissement d'enseignement"><br>
                 </div>
                 <div>
-
-
                     <label for="Date_début">Date de début</label>
-                    <input type="date" id="Date_début" name="Date_début"><br>
+                    <input type="date" id="Date_début" name="DateDebut"><br>
                 </div>
                 <div>
                     <label for="Date_fin">Date de fin</label>
-                    <input type="date" id="Date_fin" name="Date_fin"><br>
+                    <input type="date" id="Date_fin" name="DateFin"><br>
+                </div>
+                <div>
+                    <label for="pays">Pays</label>
+                    <input type="text" id="pays" name="pays"
+                        placeholder="Pays"><br>
+                </div>
+                <div>
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville"
+                        placeholder="ville"><br>
                 </div>
             </div>
             <input type="button" value="Ajouter Formation" onclick="ajouterFormation()">
@@ -75,7 +88,7 @@
             <div class="for" id="ExperienceFieldset">
                 <div>
                     <label for="titre_poste"> Titre du poste </label>
-                    <input type="text" id="text" name="text" placeholder="Titre du poste"><br>
+                    <input type="text" id="titre_poste" name="titre_poste" placeholder="Titre du poste"><br>
                 </div>
                 <div>
                     <label for="Nom_Entreprise"> Nom de l'enreprise </label>
@@ -84,11 +97,11 @@
                 </div>
                 <div>
                     <label for="Date_début"> Date de début </label>
-                    <input type="date" id="Date_début" name="Date_début"><br>
+                    <input type="date" id="DateDebut" name="DateDebut"><br>
                 </div>
                 <div>
                     <label for="Date_fin"> Date de fin </label>
-                    <input type="date" id="Date_fin" name="Date_fin"><br>
+                    <input type="date" id="DateFin" name="DateFin"><br>
                 </div>
                 <div class="for">
                     <div>
@@ -107,7 +120,7 @@
             <div class="for" id="compétenceFieldset">
                 <div>
                     <label for="Compétence"> Compétence </label>
-                    <input type="text" id="Compétence" name="Compétence" placeholder="Saisir votre Compétence"><br>
+                    <input type="text" id="Compétence" name="Competence" placeholder="Saisir votre Compétence"><br>
                 </div>
                 <div>
                     <label for="Niveau"> Niveau</label>
@@ -133,7 +146,7 @@
             <input type="button" value="Ajouter langue" onclick="ajouterlangue()">
         </fieldset>
 
-        <fieldset>
+        <!-- <fieldset>
             <legend> <strong> Certification et formations complémentaires</strong></legend>
             <div class="for" id="certificationfiledset">
                 <div>
@@ -152,7 +165,7 @@
                 </div>
             </div>
             <input type="button" value="Ajouter Certification" onclick="ajoutercertification()">
-        </fieldset>
+        </fieldset> -->
 
         <label for="cv"> Joindre votre CV</label>
         <input type="file" id="cv" name="cv" accept=".pdf, .doc, .docx">
