@@ -1,10 +1,9 @@
 
 <?php
     // Inclure le contrôleur
-    //require_once '../controller/inscriptionController.php';
-    include '../controller/inscriptionController.php';
-    // Autres inclusions si nécessaire
-
+    require_once '../controller/inscriptionController.php';
+    //include '../controller/inscriptionController.php';
+    
     // Traitement du formulaire si celui-ci est soumis
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Appeler la méthode d'inscription du contrôleur

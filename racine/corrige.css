@@ -30,7 +30,7 @@ body{
     font-size: 50px; 
     text-shadow: 5px 5px 4px rgb(146,60,117);
     
-    margin-right: 480px; /* l'espace entre logo et les autre items */
+   /* margin-right: 80px; /* l'espace entre logo et les autre items */
 
 }
 .logo{
@@ -41,7 +41,7 @@ color:white;
 }
 /* -------------ul------------*/
 .navbar-nav {
-    margin-left: 80px;
+  margin-left: 150px;
 
 
 }

@@ -1,7 +1,7 @@
 <?php
 require_once '../racine/config.php';
-
-class FormulairetModel {
+class FormModel {
+    
     //_____________________________Contacts__________________________________________________________
     public static function enregistrerContact($id_ct,$email, $adresse, $tele,$id_cv) {
         try {
@@ -40,7 +40,7 @@ class FormulairetModel {
         try{
             $bdd = Database::connect();
         // Requête SQL pour insérer les données de formation
-        $sql = "INSERT INTO Formation (id_formation, nom, diplome, date_debut, date_fin, ecole, pays, ville, id_cv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Formations (id_formation, nom, diplome, date_debut, date_fin, ecole, pays, ville, id_cv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $bdd->prepare($sql);
         $result = $stmt->execute([$id_f, $nom, $diplome, $dateDebut, $dateFin, $etablissement, $pays, $ville, $id_cv]);
 
@@ -167,5 +167,7 @@ class FormulairetModel {
         // Retourne le dernier ID incrémenté de 1
         return ($result['last_id'] + 1);
     }
+
 }
+
 ?>

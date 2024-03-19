@@ -8,13 +8,20 @@
     <link rel="icon" href="imglogo.jpeg" type="image/x-icon">
 
 </head>
+<script>
+    function validateForm() {
+        // Récupérer la valeur du champ "type_utilisateur"
+        var typeUtilisateur = document.querySelector('input[name="type_utilisateur"]:checked').value;
+
+        // Redirection en fonction du type d'utilisateur
+        if (typeUtilisateur === "candidat") {
+            window.location.href = "profileCandidat.php";
+        } else if (typeUtilisateur === "recruteur") {
+            window.location.href = "profileRecruteur.php";
+        }
+    }
+</script>
 <body>
-    <!--
-    <div class="logo">
-            <a aria-label="logo" href="">
-                <img src="imglogo.jpeg" alt="HireLink logo" width="70" height="41">
-            </a>
-    </div>-->
     <div class="container">
         <div class="login">
         <div class="content">
@@ -23,7 +30,9 @@
         <div class="login-form">
         <form>
         <h1>Se connecter</h1>
-        
+        <label><b>Type d'utilisateur</b></label><br>
+                    <input type="radio" name="type_utilisateur" value="candidat" checked> Candidat
+                    <input type="radio" name="type_utilisateur" value="recruteur"> Recruteur <br>
         <label><b>E-mail</b></label>
         <input class="input-box" type="email" placeholder="Entrer votre adresse e-mail" name="username" required>
        
@@ -32,8 +41,8 @@
         
         <a href="">Mot de passe oublié ?</a>
         <br>
-        <input onclick="validateForm()" type="submit" id='submit' value='Se connecter' >
-        Vous débutez sur <b> <a href="corrige.html" > HireLink</a></b> ? <a href="S'inscrire.html">S’inscrire</a>
+        <input onclick="validateForm()" type="button"  value='Se connecter' >
+        Vous débutez sur <b> <a href="../racine/corrigeTest.html" > HireLink</a></b> ? <a href="inscrire.php">S’inscrire</a>
         </form>
         </div>
     </div>

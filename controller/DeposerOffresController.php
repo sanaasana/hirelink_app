@@ -4,7 +4,8 @@ include '../racine/config.php';
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
-    $idRecruteur = $_POST['id_recruteur'];
+    //$idRecruteur = $_POST['id_recruteur'];
+    $idRecruteur=3;
     $nomEntreprise = $_POST['nom_entreprise'];
     $lieu = $_POST['lieu'];
     $titrePoste = $_POST['titre_poste'];
